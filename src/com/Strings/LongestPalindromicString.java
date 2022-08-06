@@ -13,6 +13,7 @@ public class LongestPalindromicString {
         System.out.println("Ans is :"+res);
     }
     public static String solve(String A){
+
         int n=A.length(),start=0,end=0,max=Integer.MIN_VALUE;
 
         for(int i=0;i<n;i++){
@@ -53,14 +54,6 @@ public class LongestPalindromicString {
                 start=l+1;
                 end=r-1;
                 max=count;
-            }else if(count==max){
-                if(start<(l+1)){
-                    break;
-                }else{
-                    start=l+1;
-                    end=r-1;
-                    max=count;
-                }
             }
 
         }
