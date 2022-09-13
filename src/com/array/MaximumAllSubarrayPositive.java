@@ -26,7 +26,6 @@ public class MaximumAllSubarrayPositive {
 
         int n = arr.size();
         int max = 0;
-        ArrayList<Integer> res = new ArrayList<Integer>();
         for (int i=0; i <n; i++) {
             for (int j = i; j < n; j++) {
                 int sum = 0;

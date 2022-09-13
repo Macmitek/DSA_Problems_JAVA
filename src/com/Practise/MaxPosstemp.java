@@ -23,7 +23,6 @@ public class MaxPosstemp {
 
     public static ArrayList<Integer> solve( ArrayList<Integer> arr)
     {
-
         int n = arr.size();
         ArrayList<Integer> res = new ArrayList<Integer>();
         for (int i=0; i <n; i++) {
