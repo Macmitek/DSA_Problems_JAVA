@@ -1,44 +1,43 @@
 package com.AdvArray;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MaxNonNegativeSubarray {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int a[] = new int[N];
-        for(int i=0;i<N;i++){
-            a[i] = sc.nextInt();
+        public static void main(String[] args) {
+            ArrayList<Integer> arr = new ArrayList<>();
+            arr.add(1);
+            arr.add(2);
+            arr.add(5);
+            arr.add(-7);
+            arr.add(2);
+            arr.add(3);
+            System.out.println("Input arraylist :"+arr);
+            ArrayList<Integer> ans = solve(arr);
+            System.out.println("Ans is :"+ans);
         }
-        int res[] = solve(a);
-        System.out.println("Ans is:"+res);
-
+        public static ArrayList<Integer> solve(ArrayList<Integer> A){
+            long max_sum=0,sum=0;
+            ArrayList<Integer> max_list = new ArrayList<>(),list = new ArrayList<>();
+            int n = A.size();
+            for(int i=0;i<n;i++){
+                if(A.get(i)>=0){
+                    sum = sum + A.get(i);
+                    list.add(A.get(i));
+                }
+                else{
+                    if(max_sum < sum || ((sum == max_sum) && list.size() > max_list.size())){
+                        max_sum = sum;
+                        max_list = list;
+                    }
+                  sum = 0;
+                  list = new ArrayList<>();
+                }
+            }
+            if(max_sum < sum || ((sum == max_sum) && list.size() > max_list.size())){
+                max_sum = sum;
+                max_list = list;
+            }
+            return max_list;
+        }
     }
-    public  static  int[] solve(int[] A){
-        int n = A.length;
-        int tmp_len= 0;
-        int max_len_so_far = 0;
-        int start_index =0;
-
-        for (int i = 0; i < n; i++) {
-            if (A[i]>0){
-                tmp_len++;
-            }
-            else{
-                tmp_len=0;
-            }
-            if(tmp_len>max_len_so_far){
-                max_len_so_far=tmp_len;
-                start_index=i-max_len_so_far+1;
-            }
-        }
-        int ans[] = new int[max_len_so_far];
-        int x=0;
-        for(int j=start_index;j<start_index+max_len_so_far;j++){
-            ans[x] = A[j];
-            x++;
-        }
-
-        return ans;
-    }
-}
