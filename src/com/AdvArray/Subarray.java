@@ -5,7 +5,7 @@ public class Subarray {
     public static void main(String[] args) {
         int[] arr = new int[]{8,8,3,6,11,13,15};
         int res  = solve(arr);
-        System.out.println("Ans is:"+res);
+        //System.out.println("Ans is:"+res);
     }
     public static boolean isPrime(int n){
         if(n<2){
@@ -25,11 +25,8 @@ public class Subarray {
             for (int j=i; j<n; j++) {
                 System.out.println();
                 for (int k=i; k<=j; k++){
-                    if(isPrime(A[k])){
-                        count++;
-                    }
+                    System.out.print(A[k]+" ");
                 }
-
             }
         }
         return count;

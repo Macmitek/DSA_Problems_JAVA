@@ -2,7 +2,7 @@ package com.PrimeNumbers;
 
 public class PrimeSubsequence {
     public static void main(String[] args) {
-        int[] arr = new int[]{8,8,3,6,11,13,15};
+        int[] arr = new int[]{9,9,3,6,7,5,11};
         int res  = solve(arr);
         System.out.println("Ans is:"+res);
     }
