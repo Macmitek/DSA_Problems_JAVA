@@ -30,6 +30,7 @@ public class SubarrayZero {
                 return 1;
             }
             hset.add(psum);
+            System.out.println(hset);
         }
         return 0;
 

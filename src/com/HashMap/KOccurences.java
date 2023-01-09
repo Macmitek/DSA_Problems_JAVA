@@ -17,27 +17,52 @@ public class KOccurences {
             System.out.println("Ans is : " + res);
         }
         public static int solve (int A, int B, int[] C){
-            HashMap<Integer, Integer> map = new HashMap<>();
-            for (int i = 0; i < A; i++) {
-                if (map.containsKey(C[i])) {
-                    map.put(C[i], map.get(C[i]) + 1);
-                } else {
-                    map.put(C[i], 1);
+//            HashMap<Integer, Integer> map = new HashMap<>();
+//            for (int i = 0; i < A; i++) {
+//                if (map.containsKey(C[i])) {
+//                    map.put(C[i], map.get(C[i]) + 1);
+//                } else {
+//                    map.put(C[i], 1);
+//                }
+//            }
+//            System.out.println(map);
+//            int sum = 0;
+//            int flag = 0;
+//            for(Map.Entry<Integer,Integer> set: map.entrySet()){
+//                if(set.getValue()==B){
+//                    sum = sum + set.getKey();
+//                    flag = 1;
+//                }
+//            }
+//            if(flag==0){
+//                return -1;
+//            }
+//            return sum%(7+1000000000);
+            HashMap<Integer,Integer> map = new HashMap<>();
+            for(int i=0;i<A;i++){
+                if(map.containsKey(C[i])){
+                    map.put(C[i],map.get(C[i])+1);
+                }
+                else{
+                    map.put(C[i],1);
                 }
             }
-            System.out.println(map);
             int sum = 0;
             int flag = 0;
-            for(Map.Entry<Integer,Integer> set: map.entrySet()){
-                if(set.getValue()==B){
-                    sum = sum + set.getKey();
-                    flag = 1;
+            for(Map.Entry<Integer,Integer> set : map.entrySet()){
+                if(set.getValue() == B){
+                    sum+= set.getKey();
+                    flag=1;
                 }
             }
-            if(flag==0){
+
+            if(flag == 0){
                 return -1;
             }
-            return sum%(7+1000000000);
+
+            return sum%(1000000000+7);
+
+
         }
     }
 
